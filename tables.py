@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+# import plotly.express as px
 from etl import fetch_data_from_view
 
 st.title('Таблицы базы :blue-background[телеком-услуг] :book:')
