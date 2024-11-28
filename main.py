@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 # import plotly.express as px
-from etl import fetch_data_from_view
+# from etl import fetch_data_from_view
 
 
 pages = [
