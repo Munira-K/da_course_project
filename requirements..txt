@@ -1,6 +1,6 @@
 streamlit
-duckdb
-pandas
 plotly
 plotly.express
+duckdb
+pandas
 os
