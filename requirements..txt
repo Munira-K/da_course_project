@@ -1,5 +1,5 @@
+streamlit
 duckdb
 pandas
 plotly
-streamlit
 os
