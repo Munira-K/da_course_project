@@ -4,6 +4,11 @@ import os
 
 
 def create_tables(database_path='my.db', tables_sql_path='queries/create_tables.sql'):
+    """
+    Создаёт таблицы в базе данных. Работает следующим образом:
+        - Удаляет таблицы, если они уже существуют.
+        - Читает SQL-запросы из файла и создаёт новые таблицы.
+    """
     con = duckdb.connect(database=database_path)
     con.execute("DROP TABLE IF EXISTS services;")
     con.execute("DROP TABLE IF EXISTS contracts;")
@@ -16,9 +21,13 @@ def create_tables(database_path='my.db', tables_sql_path='queries/create_tables.
     con.execute(create_tables_sql)
     con.close()
 
-
-
 def load_data(database_path='my.db', source_folder='source'):
+    """
+    Загружает данные из Excel-файлов в таблицы базы данных.Работает следующим образом:
+        - Для каждой таблицы загружает данные из соответствующего листа Excel-файла.
+        - Удаляет существующие записи в таблицах перед загрузкой новых данных.
+        - Возвращает результат загрузки для каждой таблицы.
+    """
     con = duckdb.connect(database=database_path)
     data_files = {
         'customers': 'customers',
@@ -46,6 +55,11 @@ def load_data(database_path='my.db', source_folder='source'):
 
 
 def create_views(database_path='my.db', views_sql_path='queries/create_views.sql'):
+    """
+    Создаёт вьюшки в базе данных на основе SQL-запросов.Работает следующим образом:
+        - Читает SQL-запросы из файла.
+        - Создаёт представления в базе данных.
+    """
     con = duckdb.connect(database=database_path)
     with open(views_sql_path, 'r') as f:
         create_views_sql = f.read()
@@ -54,6 +68,7 @@ def create_views(database_path='my.db', views_sql_path='queries/create_views.sql
 
 
 if __name__ == '__main__':
+-- Cозданиe, загрузка таблиц и представлений , отслеживание статуса процессоа
     print("Создание таблиц...")
     create_tables()
     print("Таблицы успешно созданы.")
