@@ -23,7 +23,7 @@ elif churn_filter != "Все":
 # График 1: Распределение клиентов (Пирог)
 cust = fetch_data_from_view('about_customers')
 # filtered_cust = cust[cust['partner'] == partner_filter]  # Фильтрация по семейному положению
-fig1 = px.pie(cust, names='senior_citizen', title="Распределение клиентов по возрасту")
+fig1 = px.pie(cust, names='senior_citizen', title="Распределение клиентов по возрастным группам")
 fig1.update_layout(title_font=dict(size=24))
 st.plotly_chart(fig1)
 
