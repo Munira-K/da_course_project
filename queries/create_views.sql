@@ -49,7 +49,7 @@ from financials f
 group by year, month
 order by year, month;
 
---Отчет продаж
+--Вьюшка для отчета продаж
 CREATE OR REPLACE VIEW sales_report AS
 select 
     ct.contract,
@@ -62,7 +62,7 @@ left join financials f on c.customerID = f.customerID
 group by ct.contract
 order by total_revenue desc;
 
---Распределение трат по клиентам
+-- Вьюшка для распределения трат по клиентам
 CREATE OR REPLACE VIEW spending_distribution AS
 select 
     subquery.customerID,
@@ -80,7 +80,7 @@ from financials f
 left join contracts ct on ct.customerID = f.customerID) as subquery;
 
 
---Анализ оттока клиентов
+-- Вьюшка для анализа оттока клиентов
 CREATE OR REPLACE VIEW about_churn AS
 select
     f.monthly_charges,
@@ -97,7 +97,7 @@ from financials f
 left join services s on f.customerID = s.customerID
 left join contracts ct on ct.customerID = f.customerID;
 
---Создание таблиц вьюшек для странички таблиц
+--Создание таблиц вьюшек (использовались только для странички tables.py)
 CREATE OR REPLACE VIEW customers2 AS
 SELECT * from customers;
 
