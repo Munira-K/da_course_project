@@ -6,7 +6,7 @@ import pandas as pd
 
 pages = [
     st.Page('tables.py', title = 'Таблицы'),
-    st.Page('dashboards.py', title = 'Aнализ')
+    st.Page('dashboards.py', title = 'Краткий анализ')
 ]
 
 pg = st.navigation(pages)
