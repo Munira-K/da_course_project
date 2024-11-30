@@ -68,7 +68,7 @@ def create_views(database_path='my.db', views_sql_path='queries/create_views.sql
 
 
 if __name__ == '__main__':
-#Cозданиe, загрузка таблиц и представлений , отслеживание статуса процессоа
+-- Cозданиe, загрузка таблиц и представлений , отслеживание статуса процессоа
     print("Создание таблиц...")
     create_tables()
     print("Таблицы успешно созданы.")
